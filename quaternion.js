@@ -22,3 +22,13 @@ export function rotateY( q, radian ) {
 		q[ 3 ] * Math.cos( radian * 0.5 ) - q[ 1 ] * Math.sin( radian * 0.5)
 	] )
 }
+
+export function rotateZ( q, radian ) {
+
+	return new Float32Array( [
+		q[ 0 ] * Math.cos( radian * 0.5 ) + q[ 1 ] * Math.sin( radian * 0.5 ),
+		q[ 1 ] * Math.cos( radian * 0.5 ) - q[ 0 ] * Math.sin( radian * 0.5 ),
+		q[ 2 ] * Math.cos( radian * 0.5 ) + q[ 3 ] * Math.sin( radian * 0.5 ),
+		q[ 3 ] * Math.cos( radian * 0.5 ) - q[ 2 ] * Math.sin( radian * 0.5 )
+	] )
+}
