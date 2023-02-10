@@ -62,7 +62,7 @@ export function invert( q ) {
 
 // adapted from gl-quat
 
-function slerp( a, b, t ) {
+export function slerp( a, b, t ) {
 
 	const c = a[ 0 ] * b[ 0 ] + a[ 1 ] * b[ 1 ] + a[ 2 ] * b[ 2 ] + a[ 3 ] * b[ 3 ]
 
