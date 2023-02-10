@@ -32,3 +32,13 @@ export function rotateZ( q, radian ) {
 		q[ 3 ] * Math.cos( radian * 0.5 ) - q[ 2 ] * Math.sin( radian * 0.5 )
 	] )
 }
+
+export function conjugate( q ) {
+
+	return new Float32Array( [
+		- q[ 0 ],
+		- q[ 1 ],
+		- q[ 2 ],
+		+ q[ 3 ]
+	] )
+}
