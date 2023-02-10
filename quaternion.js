@@ -84,3 +84,8 @@ export function applyToVector3( q, vec3 ) {
 		( q[ 3 ] * vec3[ 2 ] + q[ 0 ] * vec3[ 1 ] - q[ 1 ] * vec3[ 0 ] ) * q[ 3 ] + ( - q[ 0 ] * vec3[ 0 ] - q[ 1 ] * vec3[ 1 ] - q[ 2 ] * vec3[ 2 ] ) * - q[ 2 ] + ( q[ 3 ] * vec3[ 0 ] + q[ 1 ] * vec3[ 2 ] - q[ 2 ] * vec3[ 1 ] ) * - q[ 1 ] - ( q[ 3 ] * vec3[ 1 ] + q[ 2 ] * vec3[ 0 ] - q[ 0 ] * vec3[ 2 ] ) * - q[ 0 ]
 	] )
 }
+
+export function angleBetween( a, b ) {
+
+	return 2 * Math.acos( Math.abs( Math.max( - 1, Math.min( 1, a[ 0 ] * b[ 0 ] + a[ 1 ] * b[ 1 ] + a[ 2 ] * b[ 2 ] + a[ 3 ] * b[ 3 ] ) ) ) )
+}
