@@ -1,6 +1,6 @@
 {
 	"name": "@3dlyra/quaternion",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "This library is a quaternion part of the 3DLyra's math library.",
 	"main": "quaternion.js",
 	"scripts": {
@@ -26,7 +26,7 @@
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/3dlyra/quaternion/issues",
-		"email" : "contact@3dlyra.com"
+		"email": "contact@3dlyra.com"
 	},
 	"homepage": "https://www.3dlyra.com",
 	"funding": {
