@@ -73,3 +73,14 @@ export function slerp( a, b, t ) {
 		( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( ( 1 - t ) * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : 1 - t ) * a[ 3 ] + ( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( t * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : t ) * ( c < 0 ? - b[ 3 ] : b[ 3 ] )
 	] )
 }
+
+// adapted from threejs
+
+export function applyToVector3( q, vec3 ) {
+
+	return new Float32Array( [
+		( q[ 3 ] * vec3[ 0 ] + q[ 1 ] * vec3[ 2 ] - q[ 2 ] * vec3[ 1 ] ) * q[ 3 ] + ( - q[ 0 ] * vec3[ 0 ] - q[ 1 ] * vec3[ 1 ] - q[ 2 ] * vec3[ 2 ] ) * - q[ 0 ] + ( q[ 3 ] * vec3[ 1 ] + q[ 2 ] * vec3[ 0 ] - q[ 0 ] * vec3[ 2 ] ) * - q[ 2 ] - ( q[ 3 ] * vec3[ 2 ] + q[ 0 ] * vec3[ 1 ] - q[ 1 ] * vec3[ 0 ] ) * - q[ 1 ],
+		( q[ 3 ] * vec3[ 1 ] + q[ 2 ] * vec3[ 0 ] - q[ 0 ] * vec3[ 2 ] ) * q[ 3 ] + ( - q[ 0 ] * vec3[ 0 ] - q[ 1 ] * vec3[ 1 ] - q[ 2 ] * vec3[ 2 ] ) * - q[ 1 ] + ( q[ 3 ] * vec3[ 2 ] + q[ 0 ] * vec3[ 1 ] - q[ 1 ] * vec3[ 0 ] ) * - q[ 0 ] - ( q[ 3 ] * vec3[ 0 ] + q[ 1 ] * vec3[ 2 ] - q[ 2 ] * vec3[ 1 ] ) * - q[ 2 ],
+		( q[ 3 ] * vec3[ 2 ] + q[ 0 ] * vec3[ 1 ] - q[ 1 ] * vec3[ 0 ] ) * q[ 3 ] + ( - q[ 0 ] * vec3[ 0 ] - q[ 1 ] * vec3[ 1 ] - q[ 2 ] * vec3[ 2 ] ) * - q[ 2 ] + ( q[ 3 ] * vec3[ 0 ] + q[ 1 ] * vec3[ 2 ] - q[ 2 ] * vec3[ 1 ] ) * - q[ 1 ] - ( q[ 3 ] * vec3[ 1 ] + q[ 2 ] * vec3[ 0 ] - q[ 0 ] * vec3[ 2 ] ) * - q[ 0 ]
+	] )
+}
