@@ -6,14 +6,14 @@ npm i @3dlyra/quaternion
 ```
 ### Example
 ```JavaScript
-import * as Vector3 from "@3dlyra/quaternion"
+import * as Quaternion from "@3dlyra/quaternion"
 
 const a = Quaternion.create() // (a.k.a identity) Float32Array[ 0, 0, 0, 1 ]
 const b = Quaternion.rotateX( Quaternion.create(), Math.PI )
 
 console.log( Quaternion.angleBetween( a, b ) ) // 3.141592653589793 (=== Math.PI)
 
-console.log( Quaternion.applyToVector3( b, [ 1, 2, 3 ] ) // [ 1, -2, -3 ]
+console.log( Quaternion.applyToVector3( b, [ 1, 2, 3 ] ) ) // [ 1, -2, -3 ]
 ```
 
 ### API
