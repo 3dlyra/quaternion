@@ -59,3 +59,17 @@ export function invert( q ) {
 		+ q[ 3 ] * ( dot ? 1 / dot : 0 )
 	] )
 }
+
+// adapted from gl-quat
+
+function slerp( a, b, t ) {
+
+	const c = a[ 0 ] * b[ 0 ] + a[ 1 ] * b[ 1 ] + a[ 2 ] * b[ 2 ] + a[ 3 ] * b[ 3 ]
+
+	return new Float32Array( [
+		( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( ( 1 - t ) * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : 1 - t ) * a[ 0 ] + ( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( t * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : t ) * ( c < 0 ? - b[ 0 ] : b[ 0 ] ),
+		( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( ( 1 - t ) * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : 1 - t ) * a[ 1 ] + ( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( t * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : t ) * ( c < 0 ? - b[ 1 ] : b[ 1 ] ),
+		( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( ( 1 - t ) * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : 1 - t ) * a[ 2 ] + ( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( t * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : t ) * ( c < 0 ? - b[ 2 ] : b[ 2 ] ),
+		( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( ( 1 - t ) * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : 1 - t ) * a[ 3 ] + ( ( 1 - ( c < 0 ? - c : c ) ) > 0.000001 ? Math.sin( t * Math.acos( ( c < 0 ? - c : c ) ) ) / Math.sin( Math.acos( ( c < 0 ? - c : c ) ) ) : t ) * ( c < 0 ? - b[ 3 ] : b[ 3 ] )
+	] )
+}

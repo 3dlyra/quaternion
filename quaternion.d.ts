@@ -5,3 +5,4 @@ export function rotateZ( q: Float32Array, radian: number ): Float32Array;
 export function conjugate( q: Float32Array ): Float32Array;
 export function dot( a: Float32Array, b: Float32Array ): number;
 export function invert( q: Float32Array ): Float32Array;
+export function slerp( a: Float32Array, b: Float32Array, t: number ): Float32Array;
