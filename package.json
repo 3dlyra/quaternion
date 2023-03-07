@@ -1,6 +1,6 @@
 {
 	"name": "@3dlyra/quaternion",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "This library is a quaternion part of the 3DLyra's math library.",
 	"main": "quaternion.js",
 	"type": "module",
